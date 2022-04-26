@@ -1,0 +1,135 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+
+* , *::after , *::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Red Hat Display', sans-serif;
+    background-color: $pale-blue;
+    background-image: url('../images/pattern-background-desktop.svg');
+    background-repeat : no-repeat ; 
+    background-size :  100% ; 
+    @include mobile{
+        background-image: url('../images/pattern-background-mobile.svg');
+    }
+}
+button{
+    font-family: 'Red Hat Display', sans-serif;
+}
+main{
+    min-height: 100vh;
+    display: grid;
+    place-items : center;
+}
+.card{
+    background-color: white ;
+    max-width : 28.125rem;
+    border-radius : 15px;
+    overflow: hidden;
+    @include mobile{
+        max-width: 20.5rem;
+    }
+    .card-header{
+        width: 100%;
+        img{
+            width: 100%;
+        }
+    }
+    .card-body {
+        padding: 3rem ;
+        text-align : center;
+        @include mobile{
+            padding:1.75rem 1.4rem;
+        }
+        .header{
+            color : $dark-blue;
+            margin-bottom: 1.2rem;
+            font-size : 2rem;
+            font-weight: 900;
+        }
+        .text{
+            color : $desaturated-blue ;
+            line-height : 1.5;
+            margin-bottom: 1.2rem;
+            max-width: 24rem;
+            margin-left: auto;
+        }
+
+        .card-plan{
+            display: flex;
+            padding: 1.5rem ;
+            background-color: $very-pale-blue;
+            align-items: center;
+            border-radius : 10px;
+            margin-bottom: 1.2rem;
+            .plan-img{
+                width: 3rem;
+                height: 3rem;
+                img{
+                    width: 100% ;
+                }
+            }
+            .plan-details{
+                flex-grow: 1;
+                text-align: left;
+                padding-left : 1rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-self: stretch;
+                
+                .title{
+                    font-size : 1rem;
+                    font-weight: 900;
+                  
+                }
+                .plan-price{
+                    font-size: 1rem;
+                    color : $desaturated-blue ;
+                }
+                
+            }
+            .plan-change{
+                color : $bright-blue ;
+                font-weight: 900;
+                &:hover{
+                    color : hsla(245, 52%, 66%, 1);
+                    text-decoration: none;
+                }
+            }
+        }
+        .btn-proceed{
+            width: 100%;
+            padding: 1rem;
+            background-color: $bright-blue;
+            border: none;
+            border-radius : 10px;
+            color : white ;
+            font-weight : 700;
+            box-shadow: hsla(225, 100%, 94%, 0.9) 0px 8px 10px 5px;
+            transition: background-color .3s;
+            margin-bottom: 1.5rem;
+            cursor: pointer;
+            &:hover{
+                background-color: hsla(245, 83%, 68%, 1);
+            }
+        }
+        .cancel{
+            border : none;
+            background-color: transparent;
+            color : $desaturated-blue;
+            font-weight: 900;
+            cursor: pointer;
+            transition: color .3s;
+            &:hover{
+                color : $dark-blue;
+            }
+        }
+    }
+    
+}
